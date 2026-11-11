@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select UI</title>
+
+    <script type="text/javascript" src="js/select-ui.js" defer></script>
+    <link rel="stylesheet" href="css/select-ui.css">
+</head>
+<body>
+    <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+        <h1>Select UI</h1>
+        <h3 style="margin: 0;">Select a year:</h3>
+        <select id="year" class="select-ui-class">
+            <option value="">Please select a value...</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+        </select>
+        <div id="selected-year" class="hidden">Selected year: <span style="font-weight: 600;"></span></div>
+    </div>
+
+    <script type="text/javascript">
+
+        const yearEl = document.getElementById("year");
+        const selectedYear = document.getElementById("selected-year");
+
+        yearEl?.addEventListener("change", (e) => {
+            if (selectedYear) {
+                if (e.target.value?.trim() != "") {
+                    selectedYear.classList.remove("hidden");
+                    selectedYear.querySelector("span").textContent = e.target.value;
+                } else {
+                    selectedYear.classList.add("hidden");
+                }
+            }
+        });
+        
+    </script>
+</body>
+</html>

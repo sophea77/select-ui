@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --readonly-background: rgb(241, 241, 241);
+    --disabled-select-color: #717275;
+    --disabled-select-background: var(--readonly-background);
+    --readonly-color: rgb(189, 189, 189);
+    --input-border-color: #dadcde;
+    --input-background: white;
+    --option-background: white;
+    --option-hover-color: #fff;
+    --option-hover-background: #3874ff;
+    --selected-option-background: white;
+}
+
+.select-ui-class {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+.wrap-select-ui {
+    position: relative;
+    font-size: 13px;
+    user-select: none;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    white-space: nowrap;
+    min-width: 120px;
+}
+
+.wrap-select-ui-option {
+    width: 100%;
+}
+.wrap-select-ui .selected-option {
+    padding-right: 30px;
+}
+
+.disabled-select {
+    background: var(--disabled-select-background) !important;
+    color: var(--disabled-select-color);
+}
+
+.readonly {
+    background: var(--readonly-background) !important;
+    color: var(--readonly-color) !important;
+    cursor: initial;
+}
+
+.selected-option {
+    border: 1px solid var(--input-border-color);
+    padding: 7px;
+    width: inherit;
+    border-radius: 11px;
+    position: relative;
+    z-index: 99;
+    background: var(--selected-option-background);
+}
+
+.selected-option::after {
+    content: "\276E";
+    position: absolute;
+    right: 10px;
+    top: 25%;
+    transform: rotate(-90deg);
+}
+
+.option {
+    background: var(--option-background);
+    width: inherit;
+    padding: 8px;
+}
+
+.option:hover {
+    color: var(--option-hover-color);
+    background: var(--option-hover-background);
+}
+
+.option.active::before {
+    content: "";
+    padding: 5px 2px;
+    margin-right: 3px;
+    background: #e14169;
+    position: relative;
+    left: -3px;
+    border-radius: 6px;
+}
+
+.wrap-select-ui-option {
+    position: absolute;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
+    transition: all .17s linear;
+    transform: scale(1);
+    pointer-events: initial;
+    padding-top: 4px;
+    border-radius: 0;
+    background: var(--input-background);
+    max-height: 440px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-bottom: 3px solid var(--border-card-color);
+    z-index: 1000;
+}
+
+.hidden {
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(.96);
+    border-radius: 5px;
+    position: absolute;
+}
+
+.search-in-select {
+    outline: none;
+    height: 35px;
+    border-radius: 8px;
+    padding: 0 8px;
+    border: 1px solid var(--input-border-color);
+    background: var(--input-background);
+    color: var(--color);
+    width: 100%;
+}
